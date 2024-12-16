@@ -1,8 +1,6 @@
 import React from 'react';
 
-type Props = {};
-
-const PortfolioPage = (props: Props) => {
+const PortfolioPage = () => {
   return <div>PortfolioPage</div>;
 };
 
