@@ -703,3 +703,156 @@
 
   export default Introduction;
   ```
+
+- # 10) rutas en nextjs,
+
+  Como nota importante desde la versionn 15 se tiene que la carpeta `(routes)` no se toma el nombre como ruta
+  por ejemplo:
+
+  - creo la ruta para `about-me`: `http://localhost:3000/about-me`
+    entonces debo crear el archivo `page.tsx `en :
+
+    #### ubicacion: `landing-particles/app/(routes)/about-me/page.tsx`
+
+    al ir a la ruta se podra ir pero como vez `(routes)` no queda en la ruta solo queda:
+    `http://localhost:3000/about-me`
+
+  - ## 10.2) creo el componente
+
+    - #### ubicacion: `landing-particles/app/(routes)/about-me/page.tsx`
+
+    ```tsx
+    import React from 'react';
+
+    type Props = {};
+
+    function PageAboutMe({}: Props) {
+      return <div>PageAboutMe</div>;
+    }
+
+    export default PageAboutMe;
+    ```
+
+- # 11) creando un componente cotainer.
+
+  Para encapsular componentes dentro de el , asi no tendremos que estar dando margenes y estilos cada rato:
+
+  - #### ubicacion: `landing-particles/components/container-page.tsx`
+
+    ```ts
+    interface ContainerPageProps {
+      children: React.ReactNode;
+    }
+    const ContainerPage = (props: ContainerPageProps) => {
+      const { children } = props;
+      return (
+        <div className="w-full max-w-6xl px-4 pb-40 mx-auto mt-40 md:pb-0 md:px-6">{children}</div>
+      );
+    };
+    export default ContainerPage;
+    ```
+
+    - Esto se utilizara mas adelante en cada una de las rutas para que todos esos componentes tengan las mismmas margenes
+
+- # 12) creo el componente `avatar` que sera una imagen que aparece cuando cambio de ruta
+
+  - #### ubicacion: `landing-particles/components/avatar.tsx`
+
+    ```tsx
+    'use client';
+
+    import Image from 'next/image';
+
+    import { MotionTransition } from './transition-component';
+
+    export function Avatar() {
+      return (
+        <MotionTransition
+          position="bottom"
+          className="bottom-0 right-0 hidden md:inline-block md:absolute "
+        >
+          <Image
+            src="/avatar-1.png"
+            width="400"
+            height="400"
+            className="w-full h-full "
+            alt="Particles "
+          />
+        </MotionTransition>
+      );
+    }
+    ```
+
+- # 13) instalo el packete `react-countup`
+
+  - esto permite que la animacion de numeros se haga con una velocidad determianada,
+    por ejemplo puede ser que empiece contanto rapido y terine lento
+
+    - #### instalacion:
+      ```terminal
+      npm i react-countup
+      ```
+
+- # 14) creo el componete que tendra el texto. `counter-services.tsx`
+
+  - #### ubicacion: `landing-particles/components/counter-services.tsx`
+
+    ```tsx
+    import { dataCounter } from '@/data';
+    import CountUp from 'react-countup'; //----debo primero instalar el paquete `npm install react-countup`
+
+    const CounterServices = () => {
+      return (
+        <div className="grid justify-between max-w-3xl grid-cols-2 gap-3 mx-auto my-8 md:flex md:grid-cols-4 md:gap-6">
+          {dataCounter.map(({ id, endCounter, text, lineRight, lineRightMobile }) => (
+            <div key={id} className={`${lineRight && 'ltr'}`}>
+              <div
+                className={`${
+                  lineRight && 'px-4 border-2 border-transparent md:border-e-gray-100'
+                } ${lineRightMobile && 'border-e-gray-100'}`}
+              >
+                <p className="flex mb-2 text-2xl font-extrabold md:text-4xl text-secondary">
+                  + <CountUp end={endCounter} start={0} duration={5} />
+                </p>
+                <p className="text-xs uppercase max-w-[100px]">{text}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      );
+    };
+
+    export default CounterServices;
+    ```
+
+- # 15) edito el componente `about-me`
+
+  - ##### ubicacion: `landing-particles/app/(routes)/about-me/page.tsx`
+
+  ```tsx
+  'use client';
+
+  import TransitionPage from '@/components/transition-page';
+
+  import ContainerPage from '@/components/container-page';
+  import { Avatar } from '@/components/avatar';
+  import CounterServices from '@/components/counter-services';
+
+  const AboutMePage = () => {
+    return (
+      <div className="flex min-h-[100vh] h-full bg-no-repeat bg-gradient-cover">
+        <TransitionPage />
+        <ContainerPage>
+          <Avatar />
+          <h1 className="text-2xl leading-tight text-center md:text-left md:text-5xl md:mt-10">
+            Background <span className="font-bold text-secondary">Experience</span>
+          </h1>
+
+          <CounterServices />
+        </ContainerPage>
+      </div>
+    );
+  };
+
+  export default AboutMePage;
+  ```
