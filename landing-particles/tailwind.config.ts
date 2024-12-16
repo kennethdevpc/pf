@@ -11,6 +11,8 @@ export default {
         secondary: '#f5741c',
         darkBG: '#131424',
         bermuda: '#4d7c0f',
+        tertiary: '#862DE3',
+        quaternary: '#E030D2',
 
         background: 'var(--background)',
         foreground: 'var(--foreground)',

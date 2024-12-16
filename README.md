@@ -367,7 +367,7 @@
     }
     ```
 
-- # 6 - creo el componente Navbar que usara la trnasicion creada`transition-component.tsx`
+- # 6 - creo el componente Navbar que usara la transicion creada`transition-component.tsx`
 
   - #### ubicacion : `landing-particles/components/navbar.tsx`
 
@@ -434,8 +434,9 @@
         return (
           <AnimatePresence mode="wait">
             <div>
+              {/*--------className: es el estilo inicial y el varians permite que se desplace */}
               <motion.div
-                className="fixed top-0 bottom-0 right-full w-screen h-screen z-30 bg-[#2e2257]"
+                className="fixed top-0 bottom-0 right-full w-screen h-screen z-30 bg-[#076fbe]"
                 variants={transitionVariantsPage}
                 initial="initial"
                 animate="animate"
@@ -494,7 +495,7 @@
 
   - ## 7.3 sin el children seria asi :
 
-    - #### el elemento que usa las trnasiciones
+    - #### el elemento que usa las transiciones
 
       - ##### ubicacion: landing-particles/components/transition-page.tsx
 
@@ -556,3 +557,149 @@
         ```
 
 - # 8 ) creacion del `Header`
+
+  - #### ubicacion: `landing-particles/components/header.tsx`
+
+    creo el componente `Navbar` que usara la transicion creada `transition-component.tsx`
+
+    ```tsx
+    'use client';
+
+    import { socialNetworks } from '@/data';
+    import Link from 'next/link';
+    import { MotionTransition } from './transition-component'; //--------usamos el transition-component.tsx tal como lo hicimos en el punto 6
+
+    const Header = () => {
+      return (
+        <MotionTransition
+          position="bottom"
+          className="absolute z-40 inline-block w-full top-5 md:top-10"
+        >
+          <header>
+            <div className="container justify-between max-w-6xl mx-auto md:flex">
+              <Link href="/">
+                <h1 className="my-3 text-4xl font-bold text-center md:text-left">
+                  Tarre
+                  <span className="text-secondary">Dev</span>
+                </h1>
+              </Link>
+              <div className="flex items-center justify-center gap-7">
+                {socialNetworks.map(({ logo, src, id }) => (
+                  <Link
+                    key={id}
+                    href={src}
+                    target="_blank"
+                    className="transition-all duration-300 hover:text-secondary"
+                  >
+                    {logo}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </header>
+        </MotionTransition>
+      );
+    };
+
+    export default Header;
+    ```
+
+    - se llama en el componete layout: `landing-particles/app/layout.tsx`
+
+    ```tsx
+    <!-- ..... -->
+    export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+      return (
+        <html lang="en">
+          <body className={urbanist.className}>
+            <Navbar />
+            <Header />
+            {children}{' '}
+          </body>
+        </html>
+      );
+    }
+    ```
+
+- # 9 instalacion del paquete que anima los textos , como si se estuviera escribiendo
+
+  - [react-type-animation](https://www.npmjs.com/package/react-type-animation);
+  - intalacion
+
+    ```terminal
+    npm install react-type-animation
+
+    ```
+
+    - ## uso en el componente `Introduction`
+
+- # 9 ) creacion del `introduction`
+
+  - #### ubicacion: `landing-particles/components/introduction.tsx`
+
+  ```tsx
+  import Image from 'next/image';
+  import { TypeAnimation } from 'react-type-animation';
+
+  const Introduction = () => {
+    return (
+      <div className="z-20 w-full bg-darkBg/60">
+        <div className="z-20 grid items-center h-full p-13 py-20 md:py-0 md:grid-cols-2">
+          <Image
+            src="/profile.png"
+            priority
+            width="200"
+            height="300"
+            alt="Avatar"
+            className="justify-self-center rounded-[50%] shadow-xl shadow-white/50 sm:w-[200px] sm:h-[300px] md:w-[350px] md:h-[500px]"
+          />
+          <div className="flex flex-col justify-center max-w-lg px-5">
+            <h1 className="mb-5 text-2xl leading-tight text-cen.max-w-mdter md:text-left md:text-4xl md:mb-10">
+              Kenneth Puliche Correa, <br />
+              <TypeAnimation
+                sequence={[
+                  'Mechatronics Engineer',
+                  500,
+                  'Fullstack Developer',
+                  500,
+                  'Spec. Industrial Automation',
+                  500,
+                  'Electronic Programmer',
+                  500,
+                ]}
+                wrapper="span"
+                speed={50}
+                repeat={Infinity}
+                className="font-bold text-secondary"
+              />
+            </h1>
+
+            <p className="mx-auto mb-2 text-xl md:text-xl md:mx-0 md:mb-8 text-justify ">
+              As a software developer, I have worked in teams creating technological solutions. I
+              have experience with TypeScript, PHP, and JavaScript. Using these tools, I have
+              contributed to transforming ideas into functional projects. I am a Mechatronics
+              Engineer with over 2 years of experience in full-stack development (since 2022-07).
+            </p>
+
+            <div className="flex items-center justify-center gap-3 md:justify-start md:gap-10">
+              <a
+                href="/projects"
+                className="px-3 py-2 my-2 transition-all border-2 cursor-pointer text-md w-fit rounded-xl hover:shadow-xl hover:shadow-white/50"
+              >
+                Ver proyectos
+              </a>
+              <a
+                href="/contact"
+                className="px-3 py-2 my-5 transition-all border-2 cursor-pointer text-md w-fit text-secondary border-secondary rounded-xl hover:shadow-xl hover:shadow-secondary"
+              >
+                Contacta conmigo
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  export default Introduction;
+  ```

@@ -13,9 +13,9 @@ body {
 }
 
 main {
-  background: linear-gradient(90.21deg, #f0fc1480 -5.91%, rgba(74, 47, 189, 0.5) 111.58%);
+  background: linear-gradient(90.21deg, #f0fc1480 -5.91%, rgba(7, 197, 207, 0.5) 111.58%);
   height: 100vh;
-  height: 100dvh;
+  height: 100%;
 }
 
 .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
