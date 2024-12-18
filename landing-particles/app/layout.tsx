@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={urbanist.className}>
+      <body className={urbanist.className} style={{ display: 'flex', flexDirection: 'column' }}>
         <Header />
         <Navbar />
         <Footer></Footer>
