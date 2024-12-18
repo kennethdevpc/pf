@@ -833,10 +833,10 @@
   'use client';
 
   import TransitionPage from '@/components/transition-page';
-
   import ContainerPage from '@/components/container-page';
   import { Avatar } from '@/components/avatar';
   import CounterServices from '@/components/counter-services';
+  import TimeLine from '@/components/time-line';
 
   const AboutMePage = () => {
     return (
@@ -849,10 +849,430 @@
           </h1>
 
           <CounterServices />
+
+          <TimeLine />
         </ContainerPage>
       </div>
     );
   };
 
   export default AboutMePage;
+  ```
+
+- # 16) edito el componente `landing-particles/components/time-line.tsx`
+
+  - este sera el blocque que permite ver las experiencias en una linea de trayectoria
+
+  ```tsx
+  import { dataAboutPage } from '@/data';
+
+  const TimeLine = () => {
+    return (
+      <div className="flex flex-col justify-center divide-y divide-slate-200">
+        <div className="w-full max-w-3xl mx-auto md:pb-40 md:pt-20">
+          <div className="-my-6">
+            {dataAboutPage.map((data) => (
+              <div key={data.id} className="relative py-6 pl-8 sm:pl-32 group">
+                <h3 className="mb-1 text-2xl font-bold sm:mb-0">{data.title}</h3>
+                <div
+                  className="flex flex-col sm:flex-row items-start mb-1 
+                                          group-last:before:hidden before:absolute 
+                                          before:left-2 sm:before:left-0 before:h-full
+                                          before:px-px before:bg-slate-300 sm:before:ml-[6.5rem] 
+                                          before:self-start before:-translate-x-1/2 
+                                          before:translate-y-3 after:absolute after:left-2 
+                                          sm:after:left-0 after:w-2 after:h-2 after:bg-indigo-600 
+                                          after:border-4 after:box-content after:border-slate-50 
+                                          after:rounded-full sm:after:ml-[6.5rem] after:-translate-x-1/2 
+                                          after:translate-y-1.5"
+                >
+                  <time className="sm:absolute left-0 translate-y-0.5 inline-flex items-center justify-center text-xs font-semibold uppercase w-20 h-6 mb-3 sm:mb-0 text-emerald-600 bg-emerald-100 rounded-full">
+                    {data.date}
+                  </time>
+                  <div className="text-xl font-bold text-gray-400">{data.subtitle}</div>
+                </div>
+                <div className="text-slate-400">{data.description}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  export default TimeLine;
+  ```
+
+- # 17) creo el componente de services: para la ruta `http://localhost:3000/services`
+
+  - #### ubicacion: `landing-particles/app/(routes)/services/page.tsx`
+
+  ```tsx
+  import AvatarServices from '@/components/avatar-services'; //----falta aun crearlo
+  import CircleImage from '@/components/circle-image'; //----falta aun crearlo
+  import SliderServices from '@/components/slider-services'; //----falta aun crearlo
+  import TransitionPage from '@/components/transition-page';
+
+  const ServicesPage = () => {
+    return (
+      <>
+        <TransitionPage />
+        <CircleImage />
+        <AvatarServices />
+        <div className="grid items-center justify-center h-screen max-w-5xl gap-6 mx-auto md:grid-cols-2">
+          <div className="max-w-[450px] mt-20 pt-10 md:mt-0">
+            <h1 className="text-2xl leading-tight text-center md:text-left md:text-4xl md:mb-5">
+              Mis <span className="font-bold text-secondary"> servicios.</span>
+            </h1>
+            <p className="mb-3 text-xl text-gray-300">
+              Ofrezco servicios de desarrollo web frontend especializados en la creación de sitios
+              web y aplicaciones atractivas y funcionales. Utilizando las últimas tecnologías, como
+              HTML, CSS y JavaScript, diseño interfaces de usuario intuitivas y responsivas que
+              reflejan la identidad de marca de mis clientes y mejoran su presencia en línea.
+            </p>
+            <button className="px-3 py-2 rounded-lg bg-secondary hover:bg-secondary/65">
+              Contacta conmigo
+            </button>
+          </div>
+
+          {/* SLIDER */}
+          <div>
+            <SliderServices />
+          </div>
+        </div>
+      </>
+    );
+  };
+
+  export default ServicesPage;
+  ```
+
+  - ## 17.1) creo el avatar-services.tsx
+
+    - #### ubicacion: `landing-particles/components/avatar-services.tsx`
+
+    ```tsx
+    import Image from 'next/image';
+    import { MotionTransition } from './transition-component';
+
+    const AvatarServices = () => {
+      return (
+        <MotionTransition
+          position="right"
+          className="bottom-0 left-0 hidden md:inline-block md:absolute"
+        >
+          <Image
+            src="/services.png"
+            width="400"
+            height="400"
+            className="w-[350px] h-full "
+            alt="Particles "
+          />
+        </MotionTransition>
+      );
+    };
+
+    export default AvatarServices;
+    ```
+
+  - ## 17.2) creo el circle-image.tsx
+
+    - #### ubicacion: `landing-particles/components/circle-image.tsx`
+
+    ```tsx
+    'use client';
+
+    import Image from 'next/image';
+
+    const CircleImage = () => {
+      return (
+        <div className="bottom-0 right-0 hidden md:inline-block md:absolute">
+          <Image
+            src="/circles.png"
+            width="300"
+            height="300"
+            className="w-full h-full "
+            alt="Particles "
+          />
+        </div>
+      );
+    };
+
+    export default CircleImage;
+    ```
+
+- # 18 ) instalacion de [Swiper ](https://swiperjs.com/get-started)
+
+  -para crear carruseles que se desplacen
+
+  - para react puede consultar aqui:
+    (https://swiperjs.com/react)[https://swiperjs.com/react]
+
+  - #### instalacion:
+
+    ```terminal
+     npm install swiper
+    ```
+
+    tambien se pueden ver los demos y escoger el que mas se desee:
+    (Demos)[https://swiperjs.com/demos#ratio-breakpoints]
+    (demo usado)[https://codesandbox.io/p/devbox/swiper-react-ratio-breakpoints-lmvldw?file=%2Fsrc%2FApp.jsx]
+
+    - ## 18.1) Añadiendo el paquete:
+    - #### ubicacion: `landing-particles/app/layout.tsx`
+
+      ```tsx
+      //---importaciones para swiper
+      import 'swiper/css';
+      import 'swiper/css/navigation';
+      import 'swiper/css/pagination';
+      ```
+
+    ## Ahora si creo el slider-services.tsx para el punto 17)
+
+  - ## 18.2) creo el slider-services.tsx
+    - #### ubicacion: `landing-particles/components/slider-services.tsx`
+
+  ```tsx
+  'use client';
+
+  import { Swiper, SwiperSlide } from 'swiper/react';
+  import { Pagination } from 'swiper/modules';
+
+  import { serviceData } from '@/data';
+
+  const SliderServices = () => {
+    return (
+      <Swiper
+        breakpoints={{
+          320: {
+            slidesPerView: 1,
+            spaceBetween: 15,
+          },
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 15,
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 15,
+          },
+        }}
+        freeMode={true}
+        pagination={{
+          clickable: true,
+        }}
+        modules={[Pagination]}
+        className="h-[280px] md:h-[340px] w-[270px] md:w-[550px]"
+      >
+        {serviceData.map((item, index) => (
+          <SwiperSlide key={index}>
+            <div className="flex px-6 py-8 h-auto md:h-[290px] rounded-lg cursor-pointer bg-[rgba(65,47,123,0.15)] sm:flex-col gap-x-6 sm:gap-x-0 group hover:bg-[rgba(89,65,169,0.15)] transition-all duration-300 hover:border-secondary border-2">
+              <div className="mb-4 text-4xl text-secondary">{item.icon}</div>
+              <div>
+                <h3 className="mb-4 text-lg">{item.title}</h3>
+                <p className="text-sm">{item.description}</p>
+              </div>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    );
+  };
+
+  export default SliderServices;
+  ```
+
+- loaders: (https://uiball.com/ldrs/)[https://uiball.com/ldrs/]
+
+- # 19 ) creando a ruta portafolio para la ruta: `http://localhost:3000/portfolio`
+
+  - ## 19.1) creo el compoennte hijo:
+  - #### ubicacion: `landing-particles/components/avatar-portfolio.tsx`
+
+    ```tsx
+    'use client';
+
+    import Image from 'next/image';
+
+    import { MotionTransition } from './transition-component';
+
+    const AvatarPortfolio = () => {
+      return (
+        <MotionTransition
+          position="bottom"
+          className="bottom-0 left-0 hidden md:inline-block md:absolute "
+        >
+          <Image
+            src="/avatar-works.png"
+            width="300"
+            height="300"
+            className="w-full h-full "
+            alt="Particles "
+          />
+        </MotionTransition>
+      );
+    };
+
+    export default AvatarPortfolio;
+    ```
+
+  - ## 19.2) creo el otro componente hijo:
+  - #### ubicacion:`landing-particles/components/portfolio-box.tsx`
+
+  ```tsx
+  import Image from 'next/image';
+  import Link from 'next/link';
+
+  interface PortfolioBoxProps {
+    data: {
+      id: number;
+      title: string;
+      image: string;
+      urlGithub: string;
+      urlDemo: string;
+    };
+  }
+
+  const PortfolioBox = (props: PortfolioBoxProps) => {
+    const { data } = props;
+    const { id, title, image, urlDemo, urlGithub } = data;
+
+    return (
+      <div key={id} className="p-4 border border-teal-50 rounded-xl">
+        <h3 className="mb-4 text-xl">{title}</h3>
+        <Image
+          src={image}
+          alt="Image"
+          width={200}
+          height={200}
+          className="w-full md:w-[200px] rounded-2xl h-auto"
+        />
+
+        <div className="flex gap-5 mt-5">
+          <Link
+            href={urlGithub}
+            target="_blank"
+            className="p-2 transition duration-150 rounded-lg bg-slate-500 hover:bg-slate-500/80"
+          >
+            Github
+          </Link>
+
+          <Link
+            href={urlDemo}
+            target="_blank"
+            className="p-2 transition duration-150 rounded-lg bg-secondary hover:bg-secondary/80"
+          >
+            Live demo
+          </Link>
+        </div>
+      </div>
+    );
+  };
+
+  export default PortfolioBox;
+  ```
+
+  - ## 19.3) finalemte creo el compoente padre `portfolio`
+  - #### ubicacion: `landing-particles/app/(routes)/portfolio/page.tsx`
+
+  ```tsx
+  // import Image from 'next/image'; //----necesito crearlo
+  // import Link from 'next/link'; //----necesito crearlo
+
+  import { dataPortfolio } from '@/data';
+
+  import CircleImage from '@/components/circle-image';
+  import TransitionPage from '@/components/transition-page';
+  import ContainerPage from '@/components/container-page';
+  import PortfolioBox from '@/components/portfolio-box'; //----necesito crearlo
+  import AvatarPortfolio from '@/components/avatar-portfolio'; //----necesito crearlo
+
+  const PortfolioPage = () => {
+    return (
+      <ContainerPage>
+        <TransitionPage />
+        <AvatarPortfolio />
+        <CircleImage />
+        <div className="flex flex-col justify-center h-full">
+          <h1 className="text-2xl leading-tight text-center md:text-4xl md:mb-5">
+            Mis últimos <span className="font-bold text-secondary">trabajos realizados</span>
+          </h1>
+
+          <div className="relative z-10 grid max-w-5xl gap-6 mx-auto mt-4 sm:grid-cols-2 md:grid-cols-4">
+            {dataPortfolio.map((data) => (
+              <PortfolioBox key={data.id} data={data} />
+            ))}
+          </div>
+        </div>
+      </ContainerPage>
+    );
+  };
+
+  export default PortfolioPage;
+  ```
+
+- # 20) creacion ruta Testimonials:
+
+  - #### ubicacion: `landing-particles/app/(routes)/testimonials/page.tsx`
+
+  ```tsx
+  'use client';
+
+  import Image from 'next/image';
+  import { Pagination } from 'swiper/modules';
+  import { Swiper, SwiperSlide } from 'swiper/react';
+
+  import { dataTestimonials } from '@/data';
+  import CircleImage from '@/components/circle-image';
+  import TransitionPage from '@/components/transition-page';
+
+  const TestimonialsPage = () => {
+    return (
+      <>
+        <TransitionPage />
+        <div className="flex flex-col justify-center h-lvh">
+          <CircleImage />
+          <h1 className="text-2xl leading-tight text-center md:text-4xl md:mb-5">
+            Algunos comentarios
+            <span className="block font-bold text-secondary"> de nuestros clientes</span>
+          </h1>
+          <div className="flex items-center justify-center">
+            <div>
+              <Swiper
+                breakpoints={{
+                  320: {
+                    slidesPerView: 1,
+                    spaceBetween: 15,
+                  },
+                }}
+                freeMode={true}
+                pagination={{
+                  clickable: true,
+                }}
+                modules={[Pagination]}
+                className="h-[380px] md:h-[300px] w-[270px] md:w-[550px]"
+              >
+                {dataTestimonials.map(({ id, name, description, imageUrl }) => (
+                  <SwiperSlide key={id}>
+                    <Image
+                      src={imageUrl}
+                      alt={name}
+                      width="100"
+                      height="100"
+                      className="mx-auto rounded-full"
+                    />
+                    <h4 className="text-center">{name}</h4>
+                    <div className="mt-5 text-center">{description}</div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
+          </div>
+        </div>
+      </>
+    );
+  };
+
+  export default TestimonialsPage;
   ```
