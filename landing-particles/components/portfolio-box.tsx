@@ -24,26 +24,33 @@ const PortfolioBox = (props: PortfolioBoxProps) => {
   const closePopup = () => setSelectedImage(null);
 
   return (
-    <div key={id} className="p-4 border border-teal-50 rounded-xl">
+    <div key={id} className="p-4 border border-teal-50 rounded-xl   ">
       <h3 className="mb-4 text-xl md:min-h-[40px]  min-h-[10px] ">{title}</h3>
       <Image
         src={image}
         alt="Image"
         width={200}
         height={200}
-        className="w-full md:w-[200px] rounded-2xl  md:h-32 h-auto"
+        className="w-full md:w-[200px] rounded-2xl  md:h-32 h-auto self-center"
         onClick={() => openPopup(image)}
       />
       {selectedImage && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div
-            className="relative bg-white rounded-md shadow-lg p-4 max-w-md"
-            style={{ width: '80%', maxWidth: '1200px' }}
+            className="relative bg-white rounded-md shadow-lg p-4 max-w-[600px]"
+            style={{ width: '80%' }}
           >
             <button className="absolute top-2 right-2 text-red-500 text-xl" onClick={closePopup}>
               &times;
             </button>
-            <img className="w-full h-48 md:h-auto" src={selectedImage} alt="Popup" />
+            {/* <img className="w-full h-48 md:h-auto" src={selectedImage} alt="Popup" /> */}
+            <Image
+              src={selectedImage}
+              alt="Image"
+              width={600}
+              height={200}
+              onClick={() => openPopup(image)}
+            />
           </div>
         </div>
       )}
