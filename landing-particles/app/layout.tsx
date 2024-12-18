@@ -9,6 +9,7 @@ import 'swiper/css/pagination';
 import './globals.css';
 import Navbar from '@/components/navbar';
 import Header from '@/components/header';
+import Footer from '@/components/footer';
 
 const urbanist = Urbanist({ subsets: ['latin'] });
 
@@ -23,6 +24,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body className={urbanist.className}>
         <Header />
         <Navbar />
+        <Footer></Footer>
         {children}{' '}
       </body>
     </html>

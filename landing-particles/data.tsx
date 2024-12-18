@@ -17,28 +17,33 @@ import {
   Github,
   PhoneOutgoing,
 } from 'lucide-react';
+import { title } from 'process';
 
 export const socialNetworks = [
   {
     id: 1,
     logo: <Github size={30} strokeWidth={1} />,
     src: 'https://github.com/kennethdevpc',
+    title: 'Github',
   },
   {
     id: 2,
     logo: <Linkedin size={30} strokeWidth={1} />,
     src: 'https://www.linkedin.com/in/kenneth-e-pc-9a5b02272/',
+    title: 'Linkedin',
   },
   {
     id: 3,
     logo: <PhoneOutgoing size={30} strokeWidth={1} />,
     src: 'https://wa.link/yuij7m',
+    title: 'Phone',
   },
 
   {
     id: 5,
     logo: <Github size={30} strokeWidth={1} />,
     src: 'https://github.com/kenpulicorre',
+    title: 'Github 2',
   },
 ];
 
@@ -51,27 +56,21 @@ export const itemsNavbar = [
   },
   {
     id: 2,
-    title: 'User',
+    title: 'Experience',
     icon: <UserRound size={25} color="#fff" strokeWidth={1} />,
     link: '/about-me',
   },
   {
     id: 3,
-    title: 'Book',
+    title: 'Technologies',
     icon: <BookText size={25} color="#fff" strokeWidth={1} />,
     link: '/services',
   },
   {
     id: 4,
-    title: 'Target',
+    title: 'Projects',
     icon: <CodeSquare size={25} color="#fff" strokeWidth={1} />,
     link: '/portfolio',
-  },
-  {
-    id: 5,
-    title: 'Home',
-    icon: <Speech size={25} color="#fff" strokeWidth={1} />,
-    link: '/testimonials',
   },
 ];
 

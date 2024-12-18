@@ -20,9 +20,10 @@ const Header = () => {
               </span>
             </h1>
           </Link>
-          <div className="flex items-center justify-center gap-7">
-            {socialNetworks.map(({ logo, src, id }) => (
+          <div className="flex items-center justify-center gap-7 ">
+            {socialNetworks.map(({ logo, src, id, title }) => (
               <Link
+                title={title}
                 key={id}
                 href={src}
                 target="_blank"

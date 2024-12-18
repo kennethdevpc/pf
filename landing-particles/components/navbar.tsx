@@ -6,17 +6,18 @@ import { itemsNavbar } from '@/data';
 
 import { MotionTransition } from './transition-component';
 import { usePathname } from 'next/navigation';
+import { useState } from 'react';
 
 const Navbar = () => {
   const router = usePathname(); //---permite obtener la ruta actual en la que se encuentra el usuario
-
+  const [isHovered, setIsHovered] = useState(0);
   return (
     <MotionTransition
       position="right"
-      className="fixed z-40 flex flex-col items-center justify-center w-full mt-auto h-max bottom-10"
+      className="fixed z-40 flex flex-col items-center justify-center w-full mt-auto h-max top-20"
     >
       <nav>
-        <div className="flex items-center justify-center gap-2 px-4 py-1 rounded-full bg-white/15 background-blur-sm">
+        <div className="flex items-center justify-center gap-2 px-4 py-1 rounded-full bg-black/15 background-blur-sm">
           {itemsNavbar.map((item) => (
             <div
               key={item.id}
@@ -24,8 +25,20 @@ const Navbar = () => {
                 router === item.link && 'bg-secondary'
               }`}
               data-tooltip-target="tooltip-default"
+              title={item.title}
+              onMouseEnter={() => setIsHovered(item.id)}
+              onMouseLeave={() => setIsHovered(0)}
             >
               <Link href={item.link}>{item.icon} </Link>
+              <div className="relative group ">
+                <span
+                  className={`w-23 absolute left-1/2 transform -translate-x-1/2 -translate-y-2 mt-2 bg-gray-800 text-white text-sm rounded px-1 py-1 transition-opacity ${
+                    isHovered == item.id ? 'opacity-100' : 'opacity-0'
+                  }`}
+                >
+                  {item.title}
+                </span>
+              </div>
             </div>
           ))}
         </div>
