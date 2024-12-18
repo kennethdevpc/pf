@@ -25,14 +25,14 @@ const PortfolioBox = (props: PortfolioBoxProps) => {
   const closePopup = () => setSelectedImage(null);
 
   return (
-    <div key={id} className="p-4 border border-teal-50 rounded-xl   ">
+    <div key={id} className="p-4 border border-teal-50 rounded-xl  flex flex-col   ">
       <h3 className="mb-4 text-xl md:min-h-[40px]  min-h-[10px] ">{title}</h3>
       <Image
         src={image}
         alt="Image"
         width={200}
         height={200}
-        className="w-full md:w-[200px] rounded-2xl  md:h-32 h-auto self-center"
+        className="w-full md:w-[200px] rounded-2xl  md:h-32 h-auto self-center mb-5"
         onClick={() => openPopup(image)}
       />
       {selectedImage && (
