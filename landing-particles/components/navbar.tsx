@@ -14,7 +14,7 @@ const Navbar = () => {
   return (
     <MotionTransition
       position="right"
-      className="fixed z-40 flex flex-col items-center justify-center w-full mt-auto h-max md:bottom-auto  bottom-10 md:top20 top-auto"
+      className="fixed z-40 flex flex-col items-center justify-center w-full mt-auto h-max md:bottom-auto  bottom-10 md:top-20 top-auto"
     >
       <nav>
         <div className="flex items-center justify-center gap-2 px-4 py-1  rounded-full bg-black/15 background-blur-sm">
