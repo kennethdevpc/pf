@@ -14,33 +14,31 @@ import {
   Book,
   Rocket,
   Speech,
+  Github,
+  PhoneOutgoing,
 } from 'lucide-react';
 
 export const socialNetworks = [
   {
     id: 1,
-    logo: <Youtube size={30} strokeWidth={1} />,
-    src: '#!',
+    logo: <Github size={30} strokeWidth={1} />,
+    src: 'https://github.com/kennethdevpc',
   },
   {
     id: 2,
     logo: <Linkedin size={30} strokeWidth={1} />,
-    src: '#!',
+    src: 'https://www.linkedin.com/in/kenneth-e-pc-9a5b02272/',
   },
   {
     id: 3,
-    logo: <Twitter size={30} strokeWidth={1} />,
-    src: '#!',
+    logo: <PhoneOutgoing size={30} strokeWidth={1} />,
+    src: 'https://wa.link/yuij7m',
   },
-  {
-    id: 4,
-    logo: <Rss size={30} strokeWidth={1} />,
-    src: '#!',
-  },
+
   {
     id: 5,
-    logo: <Twitch size={30} strokeWidth={1} />,
-    src: '#!',
+    logo: <Github size={30} strokeWidth={1} />,
+    src: 'https://github.com/kenpulicorre',
   },
 ];
 
@@ -80,35 +78,68 @@ export const itemsNavbar = [
 export const dataAboutPage = [
   {
     id: 1,
-    title: 'Frontend Developer',
-    subtitle: 'TechSolutions',
+    title: 'Sofware Developer',
+    subtitle: 'Globaldigiops (Fulltime)',
     description:
-      'Colabora con un equipo dinámico para desarrollar interfaces de usuario atractivas y funcionales que impulsen el éxito de nuestros clientes en el mundo digital.',
-    date: 'Nov 2023 ',
+      'I handled 10 to 15 tickets per week, where I developed functional components and migrated systems to modern frameworks like React, utilizing TypeScript, JavaScript, and Node.js. I have become proficient in using CMS for constructing and deploying responsive web content. In addition, I gained significant experience working with a diverse, multicultural team, including colleagues from Canada, the UK, and Georgia, which greatly enhanced my communication and collaboration skills.',
+    date: 'NOV 2024 ',
+    technologies: ' TypeScript | JavaScript | Node.js | React | CMS | Jira | GitHub |scrum',
   },
   {
     id: 2,
-    title: 'Creador de Experiencias Digitales',
-    subtitle: 'PixelCrafters',
+    title: 'Full-Stack Developer',
+    subtitle: 'OpenCode (Fulltime && Freelancer)',
     description:
-      'Trabaja en proyectos emocionantes que desafían los límites de la creatividad y la tecnología. Únete a nosotros mientras creamos experiencias digitales cautivadoras que inspiran y cautivan a nuestros usuarios.',
-    date: 'May 2021',
+      'Handled 20 to 22 tickets per month using PHP, Node.js, and TypeScript (Laravel, React). Worked as a Fullstack Developer under the SCRUM agile methodology, developing user stories based on requirements. Contributed to 4 projects focused on managing social subsidies for vulnerable populations, leveraging the technologies mentioned. Additionally, conducted research on tools and libraries to generate Excel, Word, and PDF documents, utilizing the MVC architecture.',
+    date: 'DEC 2023',
+    technologies:
+      ' TypeScript | JavaScript | Node.js | React | CMS | Jira | GitHub |scrum | MySQL ',
   },
   {
     id: 3,
-    title: 'Especialista en Desarrollo Frontend',
-    subtitle: 'CodeForge Solutions',
+    title: 'Full-Stack Developer',
+    subtitle: 'Dashfleet (contract)',
     description:
-      'Como desarrollador frontend, tendrás la oportunidad de colaborar en proyectos diversos y desafiantes que te permitirán expandir tus habilidades y dejar tu huella en el mundo digital.',
-    date: 'Ago 2019',
+      'I contributed to a public transportation monitoring project using PHP, TypeScript, JavaScript, and Docker (Laravel, Angular), focused on tracking public transportation vehicles, determining arrival times and their location. This project was one of my favorites, as it was my first experience working with PHP in a development team. I had to face learning new technologies like Laravel and Angular, and although I was familiar with programming logic, I had never worked with PHP. I spent hours learning and perfecting my skills to collaborate effectively with the team. I am grateful for this opportunity and will always remember it.',
+    date: 'DEC 2022',
+    technologies:
+      'PHP | Laravel |JavaScript | React | Redux | Angular |  Node.js | Express | Docker | Sequelize | PostgreSQL | MongoDB | Jira | GitHub | Bitbucket',
   },
   {
     id: 4,
-    title: 'Prácticas Grado',
-    subtitle: 'WebWizards Inc.',
+    title: 'E-Commerce Developer',
+    subtitle: 'Work From Home/ Fresher & Experience Jobs (Freelancer)',
     description:
-      'Únete a nosotros mientras creamos sitios web y aplicaciones interactivas que sorprenden y deleitan a nuestros clientes. Si tienes pasión por el diseño y la programación, y disfrutas colaborar en un entorno creativo, ¡queremos conocerte!        ',
-    date: 'Mar 2018',
+      'In this e-commerce project, I worked as a JavaScript developer, using React, Node.js, and JavaScript. I contributed to the development from the mockups and the creation of individual pages. Additionally, I utilized technologies such as PostgreSQL, Sequelize, socket.io, CSS, and HTML to ensure a functional and efficient backend, integrating React-Redux for state management.',
+    date: 'Mar 2022',
+    technologies:
+      'JavaScript | React | Node.js | PostgreSQL | Sequelize | socket.io | CSS | HTML | React-Redux',
+  },
+  {
+    id: 5,
+    title: 'Industrial Jobs',
+    subtitle: 'Café Aguila Roja | B. Altman | Surtiaceites',
+    description:
+      'My professional career also includes extensive experience in the industry (2019-2021). I began with corrective and preventive maintenance, microprocessor programming (C++), and communication with actuators and sensors. I worked with technologies such as SCADA systems, Siemens PLCs, and wired logic programming. I actively participated in the innovation of machinery to optimize production and developed metal-mechanical parts using milling machines and lathes. Additionally, I was responsible for the installation and assembly of electrical, mechanical, and control systems. I managed the search for maintenance equipment and collaborated in the planning and scheduling of machinery.',
+    date: 'Dec 2021',
+    technologies:
+      'SCADA | Wonderware INTOUCH | PLC Siemens, TIA Portal | Siemens S7| C++ | STM32  ',
+  },
+  {
+    id: 6,
+    title: 'Specialization in Industrial Automation && Master Degree coursework ',
+    subtitle: 'UNIVALLE -university',
+    description:
+      'During this period, what I enjoyed the most was programming industrial processes, especially SCADA systems and their implementation in distributed systems. I applied industrial programming logic and gained valuable knowledge in instrumentation and control, including tuning equipment.I also started my master`s degree during this time (currently looking for a Software development project). Among the courses I completed, the one I enjoyed the most was "Fundamentals of Distributed Systems." Through this course, I gained experience with various technologies like Docker, Git, Vagrant, and Github, which sparked my interest in programming.',
+    date: 'JUL 2021',
+  },
+  {
+    id: 7,
+    title: 'Bachelor`s in Mechatronic Engineering',
+    subtitle: 'UAO-University',
+    description:
+      'Mechatronic Engineer, focused on industrial control and programming: During my university studies, I actively participated in various activities, such as assisting in research groups and participating in projects aimed at developing academic knowledge. These experiences allowed me to delve into key areas such as automation and industrial control. Additionally, I developed skills in programming languages and industrial technologies, including:Java,C,C++, PLC, Ladder. I was also part of groups related to the arts and the engineering seedbed, which allowed me to complement my technical education with a multidisciplinary approach.',
+    date: 'DIC 2019',
   },
 ];
 
@@ -145,7 +176,7 @@ export const dataCounter = [
     id: 4,
     endCounter: 2,
     text: 'University Degrees Completed',
-    lineRight: false,
+    lineRight: true,
     lineRightMobile: false,
   },
 ];
@@ -153,31 +184,41 @@ export const dataCounter = [
 export const serviceData = [
   {
     icon: <Crop />,
-    title: 'Branding',
-    description:
-      'Desarrollo de una identidad de marca sólida y coherente, incluyendo diseño de logotipo, colores y elementos visuales',
-  },
-  {
-    icon: <Pencil />,
-    title: 'Diseño web',
-    description:
-      'Diseño creativo y profesional de interfaces web intuitivas y atractivas, centradas en la experiencia del usuario',
+    title: 'Principal Programming Languages	used',
+    description: 'JavaScript, TypeScript, PHP,',
   },
   {
     icon: <Computer />,
-    title: 'Desarrollo web',
-    description: 'Diseño y desarrollo de sitios web a medida, adaptados a tus necesidades',
+    title: 'Databases',
+    description: '- SQL: PostgreSQL, MySQL.- NoSQL: MongoDB',
   },
   {
     icon: <Book />,
-    title: 'Copywriting',
-    description:
-      'Creación de contenido persuasivo y atractivo que capta la atención de tu audiencia',
+    title: 'DevOps && Versioning ',
+    description: 'Git, Docker (basic), Vagrant (basic)',
   },
   {
     icon: <Rocket />,
-    title: 'SEO',
-    description: 'Optimización de tu presencia en línea mediante estrategias de SEO avanzadas, ',
+    title: 'Other Technical Skills	',
+    description: 'HTML & CSS, SOLID principles (basic)',
+  },
+  {
+    icon: <Crop />,
+    title: 'Backend Development	',
+    description:
+      'Languages and Frameworks: Node.js (javascript/typescript), PHP (Laravel, Express.js). - ORMs and Libraries: Sequelize,Eloquent ',
+  },
+  {
+    icon: <Pencil />,
+    title: 'Frontend ',
+    description:
+      '- Frameworks and Libraries: React.js, Next.js, Angular.   State Management: React Redux, React Query, Context API, Reducers',
+  },
+  {
+    icon: <Computer />,
+    title: 'Other Frontend Tools used',
+    description:
+      'React Forms, Chakra UI, Swiper, Lucide-react, React Motion, Type Animation, CountUp, Particles.js, Bootstrap, Tailwind,',
   },
 ];
 

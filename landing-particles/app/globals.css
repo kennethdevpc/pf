@@ -18,6 +18,7 @@ main {
   height: 100%;
 }
 
+/* Esto es el estilo para el slider porque se saco cuando se hace el despliegue en el servidor y ahis se miro donde darle el estilo */
 .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
 .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
   background-color: #f5741c;

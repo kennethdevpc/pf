@@ -1,5 +1,11 @@
 import type { Metadata } from 'next';
 import { Urbanist } from 'next/font/google';
+
+//---importaciones para swiper
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
 import './globals.css';
 import Navbar from '@/components/navbar';
 import Header from '@/components/header';
