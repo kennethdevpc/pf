@@ -1,5 +1,7 @@
+'use client';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState } from 'react';
 
 interface PortfolioBoxProps {
   data: {
@@ -13,18 +15,39 @@ interface PortfolioBoxProps {
 
 const PortfolioBox = (props: PortfolioBoxProps) => {
   const { data } = props;
-  const { id, title, image, urlDemo, urlGithub } = data;
+  const { id, title, image, urlDemo, urlGithub, description } = data;
+  // Declara el estado para la imagen seleccionada
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  // Funciones para abrir y cerrar el popup
+  const openPopup = (image: string) => setSelectedImage(image);
+  const closePopup = () => setSelectedImage(null);
 
   return (
     <div key={id} className="p-4 border border-teal-50 rounded-xl">
-      <h3 className="mb-4 text-xl">{title}</h3>
+      <h3 className="mb-4 text-xl md:min-h-[40px]  min-h-[10px] ">{title}</h3>
       <Image
         src={image}
         alt="Image"
         width={200}
         height={200}
-        className="w-full md:w-[200px] rounded-2xl h-auto"
+        className="w-full md:w-[200px] rounded-2xl  md:h-32 h-auto"
+        onClick={() => openPopup(image)}
       />
+      {selectedImage && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div
+            className="relative bg-white rounded-md shadow-lg p-4 max-w-md"
+            style={{ width: '80%', maxWidth: '1200px' }}
+          >
+            <button className="absolute top-2 right-2 text-red-500 text-xl" onClick={closePopup}>
+              &times;
+            </button>
+            <img className="w-full h-48 md:h-auto" src={selectedImage} alt="Popup" />
+          </div>
+        </div>
+      )}
+      <p className="text-justify">{description}</p>
 
       <div className="flex gap-5 mt-5">
         <Link

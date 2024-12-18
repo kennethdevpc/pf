@@ -12,8 +12,8 @@ const AvatarPortfolio = () => {
     >
       <Image
         src="/avatar-works.png"
-        width="300"
-        height="300"
+        width="400"
+        height="400"
         className="w-full h-full "
         alt="Particles "
       />
