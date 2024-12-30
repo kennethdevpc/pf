@@ -14,7 +14,6 @@ const PortfolioPage = () => {
     <div className="flex min-h-[100vh] h-full bg-no-repeat bg-gradient-cover ">
       <ContainerPage>
         <TransitionPage />
-        <AvatarPortfolio />
         <CircleImage />
         <div className="flex flex-col justify-center h-full">
           <h1 className="text-2xl leading-tight text-center md:text-4xl md:mb-5">

@@ -55,7 +55,7 @@ const PortfolioBox = (props: PortfolioBoxProps) => {
           </div>
         </div>
       )}
-      <p className="text-justify">{description}</p>
+      <p className="text-justify md:min-h-36">{description}</p>
 
       <div className="flex gap-5 mt-5">
         <Link

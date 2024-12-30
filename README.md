@@ -1,5 +1,6 @@
 # pf
 
+- Instalacion de tailwind con next: [Install Tailwind CSS with Next.js](https://tailwindcss.com/docs/guides/nextjs)
 - 1-npx create-next-app@latest landing-particles --typescript --eslint
 - copia este archivo `landing-particles/data.tsx`
 

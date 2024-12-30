@@ -233,6 +233,15 @@ export const dataPortfolio = [
   },
   {
     id: 2,
+    title: 'Chat App socket.io',
+    image: '/chatapp2.png',
+    urlGithub: 'https://github.com/kennethdevpc/chatAppMERN',
+    urlDemo: 'https://chatappmern-23ko.onrender.com/',
+    description:
+      'A cutting-edge system built for real-time chat, featuring seamless user authentication, dynamic message handling, and state-of-the-art design practices. Technologies: Node.js | React | MongoDB | Socket.IO | DaisyUI | Zustand',
+  },
+  {
+    id: 10,
     title: 'Employee Management',
     image: '/crudEmploye.png',
     urlGithub: 'https://github.com/kennethdevpc/php_nexura_test',
@@ -240,6 +249,7 @@ export const dataPortfolio = [
     description:
       'A system designed for managing employee records, including features for authentication and user management. Technologies:PHP | Laravel |JavaScript | node.js | Eloquent | MySQL | GitHub ',
   },
+
   {
     id: 3,
     title: 'Task Management',
