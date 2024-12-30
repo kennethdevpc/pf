@@ -92,7 +92,7 @@ export const dataAboutPage = [
       'Handled 20 to 22 tickets per month using PHP, Node.js, and TypeScript (Laravel, React). Worked as a Fullstack Developer under the SCRUM agile methodology, developing user stories based on requirements. Contributed to 4 projects focused on managing social subsidies for vulnerable populations, leveraging the technologies mentioned. Additionally, conducted research on tools and libraries to generate Excel, Word, and PDF documents, utilizing the MVC architecture.',
     date: 'DEC 2023',
     technologies:
-      ' TypeScript | JavaScript | Node.js | React | CMS | Jira | GitHub |scrum | MySQL ',
+      ' PHP | Laravel | angular |TypeScript | JavaScript | Node.js | GitHub |scrum | MySQL | vuejs (4 months)',
   },
   {
     id: 3,
