@@ -233,7 +233,7 @@ export const dataPortfolio = [
   },
   {
     id: 11,
-    title: 'Verify Health claims',
+    title: 'Verify Health claims(in progress...)',
     image: '/influencerApp.png',
     urlGithub: 'https://github.com/kennethdevpc/verify-influencers',
     urlDemo: 'https://verify-influencers-hci5.onrender.com/',
