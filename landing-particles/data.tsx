@@ -232,6 +232,15 @@ export const dataPortfolio = [
       'public transportation monitoring project. Technologies: PHP | Laravel |JavaScript | React | Redux | Angular | Node.js | Express | Docker | Sequelize | PostgreSQL | MongoDB | Jira | GitHub | Bitbucket',
   },
   {
+    id: 11,
+    title: 'Verify Health claims',
+    image: '/influencerApp.png',
+    urlGithub: 'https://github.com/kennethdevpc/verify-influencers',
+    urlDemo: 'https://verify-influencers-hci5.onrender.com/',
+    description:
+      'A cutting-edge admin panel leveraging AI to validate health claims from influencers, ensuring transparency and credibility. Technologies: Node.js | React | TypeScript | MongoDB | Twitter API | OpenAI API',
+  },
+  {
     id: 2,
     title: 'Chat App socket.io',
     image: '/chatapp2.png',
