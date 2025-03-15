@@ -4,7 +4,8 @@
 - 1-npx create-next-app@latest landing-particles --typescript --eslint
 - copia este archivo `landing-particles/data.tsx`
 
-  - instala el paquete de `https://lucide.dev/guide/packages/lucide-react`
+  - instala el paquete de `https://lucide.dev/guide/packages/lucide-react` para poder tambien jugarcon los iconos
+  
 
     ```tm
     npm install lucide-react
